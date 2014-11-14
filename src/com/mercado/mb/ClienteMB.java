@@ -21,7 +21,7 @@ public class ClienteMB {
 	
 	public String salvar(){
 		
-		return "sucesso"; //string que leva para pagina de cadastro realizado 
+		return "sucesso! "; //string que leva para pagina de cadastro realizado 
 		
 	}
 	
