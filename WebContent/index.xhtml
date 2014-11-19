@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Sistam SUPER</title>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<table width="100%">
+        <tr>
+          <td colspan="2" align="center">
+            <h1>Sistema SuperMerc@do</h1>
+          </td>
+        </tr>
+        <tr>
+        	<td width="200px" valign="top">
+              <h1>Menu</h1>
+              <h:panelGrid columns="1">
+              <p:growl id="growl" life="2000" />
+  				<p:commandButton value="Cadastrar Cliente" actionListener="#{clienteManaged.salvar}" styleClass="ui-priority-primary" />            
+              	<p:commandButton value="Cadastrar Compra" actionListener="#{compraManaged.salvar}" styleClass="ui-priority-primary" />
+              	<p:commandButton value="Cadastrar Usuario" actionListener="#{usuarioManaged.adicionarUsuario}" styleClass="ui-priority-primary" />
+              </h:panelGrid>
+           </td>
+        </tr>
+      </table>
+	</h:form>
+</h:body>
+</html>
