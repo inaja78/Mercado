@@ -4,39 +4,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mercado.dao.AbstractDAO;
-import com.mercado.dao.ClienteDAO;
-import com.mercado.modelo.Cliente;
+import com.mercado.dao.CompraDAO;
+import com.mercado.modelo.Compra;
 
-public class ClienteMB {
-	
-	private Cliente cliente;
-	private AbstractDAO<Cliente> clienteDAO;
-	private List<Cliente> clientes;
+public class CompraMB {
+	private Compra compra;
+	private AbstractDAO<Compra> compraDAO;
+	private List<Compra> compras;
 	
 	private String erro;
 	
-	public ClienteMB(){
-		cliente = new Cliente();
-		clienteDAO = new ClienteDAO();
-		setClientes(new ArrayList<Cliente>());
+	public CompraMB(){
+		compra = new Compra();
+		compraDAO =  new CompraDAO();
+		setCompras(new ArrayList<Compra>());		
 	}
 	
 	public String salvar(){
 		try{
-			clienteDAO.adicionar(cliente);
-			this.cliente = new Cliente();
+			compraDAO.adicionar(compra);
+			this.compra = new Compra();
 		} catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
 			return "erro";
 		}		
-		return "sucesso"; //string que leva para pagina de cadastro realizado 		
+		return "sucesso"; //string que leva para pagina de cadastro realizado
 	}
 	
-	public String excluir(Cliente cli){
+	public String excluir(Compra comp){
 		try{
-			clientes.remove(cli);
-			this.cliente = new Cliente();			
+			compras.remove(comp);
+			this.compra = new Compra();
 		}catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
@@ -47,7 +46,7 @@ public class ClienteMB {
 	
 	public String pesquisar(){
 		try{
-			this.clientes = clienteDAO.getLista(cliente);
+			this.compras = compraDAO.getLista(compra);
 		}catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
@@ -58,16 +57,16 @@ public class ClienteMB {
 	
 	public String editar(){
 		
-		return "alterar"; //string que leva para pagina de cadastro
+		return "alterar";
 	}
-
-	public List<Cliente> getClientes() {
-		clientes = clienteDAO.getLista(cliente);
-		return clientes;
+		
+	public List<Compra> getCompras(){
+		compra = (Compra) compraDAO.getLista(compra);
+		return compras;
 	}
-
-	public void setClientes(List<Cliente> clientes) {
-		this.clientes = clientes;
+	
+	public void setCompras(List<Compra> compras){
+		this.compras = compras;
 	}
 	
 	public String getErro() {

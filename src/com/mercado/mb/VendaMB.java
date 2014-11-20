@@ -4,39 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mercado.dao.AbstractDAO;
-import com.mercado.dao.ClienteDAO;
-import com.mercado.modelo.Cliente;
+import com.mercado.dao.VendaDAO;
+import com.mercado.modelo.Venda;
 
-public class ClienteMB {
+public class VendaMB {
 	
-	private Cliente cliente;
-	private AbstractDAO<Cliente> clienteDAO;
-	private List<Cliente> clientes;
+	private Venda venda;
+	private AbstractDAO<Venda> vendaDAO;
+	private List<Venda> vendas;
 	
 	private String erro;
 	
-	public ClienteMB(){
-		cliente = new Cliente();
-		clienteDAO = new ClienteDAO();
-		setClientes(new ArrayList<Cliente>());
+	public VendaMB(){
+		venda = new Venda();
+		vendaDAO = new VendaDAO();
+		setVendas(new ArrayList<Venda>());
 	}
 	
 	public String salvar(){
 		try{
-			clienteDAO.adicionar(cliente);
-			this.cliente = new Cliente();
+			vendaDAO.adicionar(venda);
+			this.venda = new Venda();
 		} catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
 			return "erro";
 		}		
-		return "sucesso"; //string que leva para pagina de cadastro realizado 		
+		return "sucesso"; //string que leva para pagina de cadastro realizado
 	}
 	
-	public String excluir(Cliente cli){
+	public String excluir(Venda ven){
 		try{
-			clientes.remove(cli);
-			this.cliente = new Cliente();			
+			vendas.remove(ven);
+			this.venda = new Venda();
 		}catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
@@ -47,7 +47,7 @@ public class ClienteMB {
 	
 	public String pesquisar(){
 		try{
-			this.clientes = clienteDAO.getLista(cliente);
+			this.vendas = vendaDAO.getLista(venda);
 		}catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
@@ -58,16 +58,16 @@ public class ClienteMB {
 	
 	public String editar(){
 		
-		return "alterar"; //string que leva para pagina de cadastro
+		return "alterar";
 	}
-
-	public List<Cliente> getClientes() {
-		clientes = clienteDAO.getLista(cliente);
-		return clientes;
+		
+	public List<Venda> getVendas(){
+		vendas = vendaDAO.getLista(venda);
+		return vendas;
 	}
-
-	public void setClientes(List<Cliente> clientes) {
-		this.clientes = clientes;
+	
+	public void setVendas(List<Venda> vendas){
+		this.vendas = vendas;
 	}
 	
 	public String getErro() {
