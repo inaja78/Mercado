@@ -22,7 +22,7 @@ public class VendedorMB {
 		setVendedores(new ArrayList<Vendedor>());
 	}
 	
-	public String salvar(){
+	public String Salvar(){
 		try{
 			vendedorDAO.adicionar(vendedor);
 			this.vendedor = new Vendedor();			
@@ -34,7 +34,7 @@ public class VendedorMB {
 		return "sucesso"; //string que leva para pagina de cadastro realizado 
 	}
 	
-	public String excluir(Vendedor vend){
+	public String Excluir(Vendedor vend){
 		try{
 			vendedores.remove(vend);
 			this.vendedor = new Vendedor();			
@@ -47,7 +47,7 @@ public class VendedorMB {
 		return "sucesso";//string que leva para pagina de exclusao realizado		
 	}
 	
-	public String pesquisar(){
+	public String Pesquisar(){
 		try{
 			this.vendedores = vendedorDAO.getLista(vendedor);
 		}catch (Exception ex) {
@@ -58,12 +58,22 @@ public class VendedorMB {
 		return "pesquisar"; //string que leva para pagina de pesquisa
 	}
 	
-	public String editar(){
+	public String Editar(){
 		
 		return "alterar";
 	}
 	
-	public List<Vendedor> getVendedor(){
+	public Vendedor getVendedor(){
+		
+		return vendedor;
+	}
+	
+	public void setVendedor(Vendedor vendedor){
+		
+		this.vendedor = vendedor;
+	}
+	
+	public List<Vendedor> getVendedores(){
 		vendedores = vendedorDAO.getLista(vendedor);
 		return vendedores;
 	}

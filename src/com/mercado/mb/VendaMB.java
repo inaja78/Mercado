@@ -21,7 +21,7 @@ public class VendaMB {
 		setVendas(new ArrayList<Venda>());
 	}
 	
-	public String salvar(){
+	public String Salvar(){
 		try{
 			vendaDAO.adicionar(venda);
 			this.venda = new Venda();
@@ -33,7 +33,7 @@ public class VendaMB {
 		return "sucesso"; //string que leva para pagina de cadastro realizado
 	}
 	
-	public String excluir(Venda ven){
+	public String Excluir(Venda ven){
 		try{
 			vendas.remove(ven);
 			this.venda = new Venda();
@@ -45,7 +45,7 @@ public class VendaMB {
 		return "sucesso";//string que leva para pagina de exclusao realizado
 	}
 	
-	public String pesquisar(){
+	public String Pesquisar(){
 		try{
 			this.vendas = vendaDAO.getLista(venda);
 		}catch (Exception ex) {
@@ -56,9 +56,40 @@ public class VendaMB {
 		return "pesquisar"; //string que leva para pagina de pesquisa
 	}
 	
-	public String editar(){
+	public String Index(){
+		
+		return "index";
+	}
+	
+	
+	public String Editar(){
 		
 		return "alterar";
+	}
+	
+	public String IniciaVenda(){
+		
+		return "iniciaVenda";//string que leva para pagina de exclusao realizado
+	}
+	
+	public String AdicionarItens(){
+		
+		return "sucesso";//string que leva para pagina de exclusao realizado
+	}
+	
+	public String TotalVenda(){
+		
+		return "sucesso";//string que leva para pagina de exclusao realizado
+	}
+	
+	public Venda getVenda(){
+		
+		return venda;
+	}
+	
+	public void setVenda(Venda venda){
+		
+		this.venda = venda;
 	}
 		
 	public List<Venda> getVendas(){

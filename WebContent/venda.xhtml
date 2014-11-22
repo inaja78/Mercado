@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Venda</title>
+</h:head>
+<h:body>
+	<h:form>
+		<table>
+			<tr>
+				<td colspan="2" align="center">
+					<h1>Sistema SuperMerc@do</h1>
+				</td>
+			</tr>
+			<tr>
+				<td width="200px" valign="top">
+					<h1>Iniciar Venda</h1> <h:panelGrid>
+						<h:outputLabel for="codigo" value="Codigo"></h:outputLabel>
+						<p:autoComplete  value="#{vendaBean.venda.codigo}" completeMethod="#{autoCompleteView.completeText}" />
+						
+						<h:outputLabel id="lbCpfCliente" for="cpfClientes"
+							value="Cpf Cliente"></h:outputLabel>
+						<p:autoComplete id="dd" dropdown="true" value="#{vendaBean.venda.cpfCliente}" completeMethod="#{autoCompleteView.completeText}" />	
+												
+						<h:outputLabel id="lbCodigoProduto" for="itens"
+							value="Código do Item"></h:outputLabel>
+						<p:autoComplete value="#{vendaBean.venda.itens}" completeMethod="#{autoCompleteView.completeText}" />
+						
+						<h:outputLabel id="lbDataVenda" for="dataVenda"
+							value="Data da Venda"></h:outputLabel>
+						<p:calendar id="popup" value="#{calendarView.date2}" />
+												
+						<h:outputLabel id="lbQtdItens" for="qtdItens"
+							value="Quantidade do Itens"></h:outputLabel>
+						<p:autoComplete  value="#{vendaBean.venda.qtd_itens}" completeMethod="#{autoCompleteView.completeText}" />
+						
+					</h:panelGrid> <br /> <p:commandButton value="Inicio"
+						actionListener="#{vendaBean.Index}"
+						styleClass="ui-priority-primary" /><br />
+				</td>
+			</tr>
+		</table>
+	</h:form>
+
+</h:body>
+</html>
