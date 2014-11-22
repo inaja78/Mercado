@@ -21,9 +21,10 @@
               <h1>Menu</h1>
               <h:panelGrid columns="1">
               <p:growl id="growl" life="2000" />
-  				<p:commandButton value="Cadastrar Cliente" actionListener="#{clienteManaged.salvar}" styleClass="ui-priority-primary" />            
-              	<p:commandButton value="Cadastrar Compra" actionListener="#{compraManaged.salvar}" styleClass="ui-priority-primary" />
-              	<p:commandButton value="Cadastrar Usuario" actionListener="#{usuarioManaged.adicionarUsuario}" styleClass="ui-priority-primary" />
+  				<p:commandButton value="Cadastrar Cliente" actionListener="#{clienteBean.salvar}" styleClass="ui-priority-primary" />            
+              	<p:commandButton value="Cadastrar Compra" actionListener="#{compraBean.salvar}" styleClass="ui-priority-primary" />
+              	<p:commandButton value="Iniciar Venda" actionListener="#{vendaBean.IniciaVenda}" styleClass="ui-priority-primary" />
+              	<p:commandButton value="Cadastrar Usuario" actionListener="venda.xhtml" styleClass="ui-priority-primary" />
               </h:panelGrid>
            </td>
         </tr>
