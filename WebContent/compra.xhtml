@@ -9,6 +9,42 @@
 <title>Compra</title>
 </h:head>
 <h:body>
+	<h:form>
+		<table>
+			<tr>
+				<td colspan="2" align="center">
+					<h1>Sistema SuperMerc@do</h1>
+				</td>
+			</tr>
+			<tr>
+				<td width="200px" valign="top">
+					<h1>Iniciar Compra</h1> <h:panelGrid>
+						<h:outputLabel for="cod_compra" value="cod_compra"></h:outputLabel>
+						<p:autoComplete  value="#{compraBean.compra.cod_compra}" completeMethod="#{autoCompleteView.completeText}" />
+						
+						<h:outputLabel id="lbcpfVendedor" for="cpfVendedor"
+							value="Cpf Vendedor"></h:outputLabel>
+						<p:autoComplete id="dd" dropdown="true" value="#{compraBean.compra.cpfVendedor}" completeMethod="#{autoCompleteView.completeText}" />	
+												
+						<h:outputLabel id="lbCodigoProduto" for="itens"
+							value="Código do Item"></h:outputLabel>
+						<p:autoComplete value="#{compraBean.venda.itens}" completeMethod="#{autoCompleteView.completeText}" />
+						
+						<h:outputLabel id="lbDataCompra" for="dataCompra"
+							value="Data da Compra"></h:outputLabel>
+						<p:calendar id="popup" value="#{calendarView.date2}" />
+												
+						<h:outputLabel id="lbQtdItens" for="qtdItens"
+							value="Quantidade do Itens"></h:outputLabel>
+						<p:autoComplete  value="#{vendaBean.venda.qtd_itens}" completeMethod="#{autoCompleteView.completeText}" />
+						
+					</h:panelGrid> <br /> <p:commandButton value="Inicio"
+						actionListener="#{compraBean.Index}"
+						styleClass="ui-priority-primary" /><br />
+				</td>
+			</tr>
+		</table>
+	</h:form>
 
 </h:body>
 </html>
