@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14163945316860" configfile="/Mercado/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf14164016581041" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14164016581042" path="/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="cadastroCliente.xhtml" id="pf14164016581203" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14164016581042" path="cadastroCliente.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="cadastroProduto.xhtml" id="pf14164016581204" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14164016581205" path="/cadastroProduto.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf14164016581206" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14164016581205" path="index.xhtml"/>
-  <links id="pf14164016581042" target="pf14164016581203" source="pf14164016581041" outcome="cliente"/>
-  <links id="pf14164016581205" target="pf14164016581206" source="pf14164016581204" outcome="salvo"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="178" id="pf14164016581041" referenceLink="//@navigationRule.0/@fromViewId|" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="cadastroCliente.xhtml" x="122" y="562" id="pf14164016581203" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="cadastroCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="cadastroProduto.xhtml" x="122" y="946" id="pf14164016581204" referenceLink="//@navigationRule.1/@fromViewId|" path="/cadastroProduto.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="1330" id="pf14164016581206" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" outlinks="pf14170199270250" inlinks="pf14170199270250" path="index.xhtml"/>
+  <links id="pf14170199270250" target="pf14164016581206" source="pf14164016581206" outcome="index">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
 </pageflow:Pageflow>
