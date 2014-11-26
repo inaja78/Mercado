@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+</h:head>
+
+<body>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Cpf:" />
+			<h:inputText id="cpf" value="#{clienteBean.cliente.cpf}" size="30" />
+			<h:message for="cpf" />
+
+			<h:outputLabel value="Nome:" />
+			<h:inputText id="nome" value="#{clienteBean.cliente.nome}" size="30" />
+			<h:message for="nome" />
+
+			<h:outputLabel value="Endereço:" />
+			<h:inputText id="endereco" value="#{clienteBean.cliente.endereco}"
+				size="30" />
+			<h:message for="endereco" />
+
+			<h:outputLabel value="Data de Nascimento:" />
+			<h:inputText id="dataNascimento"
+				value="#{clienteBean.cliente.dataNascimento}" size="30" />
+			<h:message for="dataNascimento" />
+
+			<br />
+			<br />
+			<p:growl id="growl" life="2000" />
+  				 
+			<p:commandButton id="btnE" value="Salvar" type="submit"
+				action="#{clienteBean.salvarCliente}" />
+			<p:commandButton id="btnL" value="Limpar" type="reset" />
+
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>
