@@ -1,6 +1,5 @@
 package com.mercado.dao;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +15,7 @@ public class ClienteDAO extends AbstractDAO<Cliente>{
 	public ClienteDAO(){
 		super();
 		listaCliente = new ArrayList<Cliente>();
+		listaCliente.add(new Cliente());
 	}
 	
 	public List<Cliente> getLista(Cliente cliente){
@@ -41,11 +41,10 @@ public class ClienteDAO extends AbstractDAO<Cliente>{
 	
 	public void adicionar(Cliente cliente){
 		try {
-			PreparedStatement ptmt = conn.prepareStatement("insert into Cliente (cpf, nome, endereço, dataNascimento) values (?, ?, ?, ?)");
+			PreparedStatement ptmt = conn.prepareStatement("insert into Cliente (cpf, nome, endereco) values (?, ?, ?)");
 			ptmt.setString(1, cliente.getCpf());
 			ptmt.setString(2, cliente.getNome());
 			ptmt.setString(3, cliente.getEndereco());
-			ptmt.setDate(4, (Date) cliente.getDataNascimento());
 			ptmt.executeUpdate();
 			ptmt.close();
 		} catch (SQLException e) {

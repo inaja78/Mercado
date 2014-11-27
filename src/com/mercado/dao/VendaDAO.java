@@ -1,6 +1,5 @@
 package com.mercado.dao;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,13 +23,12 @@ public class VendaDAO  extends AbstractDAO<Venda>{
 	
 	public void adicionar(Venda venda){
 		try{
-			PreparedStatement ptmt = conn.prepareStatement("insert into Venda (codigo, cpfCliente, itens, qtd_itens, dataVenda, valorTotal) values (?, ?, ?, ?, ?, ?)");
+			PreparedStatement ptmt = conn.prepareStatement("insert into VENDA (codigo, cpfCliente, itens, qtd_itens, valorTotal) values (?, ?, ?, ?, ?)");
 			ptmt.setInt(1, venda.getCodigo());
-			ptmt.setString(2, venda.getCpfCliente());
-			ptmt.setInt(3, venda.getItens());
-			ptmt.setInt(4, venda.getQtd_itens());
-			ptmt.setDate(5, (Date) venda.getDataVenda());
-			ptmt.setDouble(6, venda.getValorTotal());
+			ptmt.setString(2, venda.getCliente().getCpf());
+			ptmt.setInt(3, venda.getItemVenda().getProduto().getCodigo());
+			ptmt.setInt(4, venda.getItemVenda().getQtd_venda());
+			ptmt.setDouble(5, venda.getValorTotal());
 		}catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -50,8 +48,8 @@ public class VendaDAO  extends AbstractDAO<Venda>{
 	
 	public List<Venda> getLista(Venda venda){
 		try{
-			PreparedStatement ptmt = conn.prepareStatement("select * from Venda where codigo like ?");
-			ptmt.setString(1, "%" + venda.getCodigo() + "%");
+			PreparedStatement ptmt = conn.prepareStatement("select * from Venda where codigo = ?");
+			ptmt.setInt(1, venda.getCodigo());
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()){
 				venda = new Venda();

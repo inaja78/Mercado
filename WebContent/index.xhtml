@@ -20,11 +20,11 @@
         	<td width="200px" valign="top">
               <h1>Menu</h1>
               <h:panelGrid columns="1">
-              <p:growl id="growl" life="2000" />
-  				<p:commandButton value="Cadastrar Cliente" actionListener="#{clienteBean.Salvar}" styleClass="ui-priority-primary" />            
-              	<p:commandButton value="Cadastrar Compra" actionListener="#{compraBean.Salvar}" styleClass="ui-priority-primary" />
-              	<p:commandButton value="Iniciar Venda" actionListener="#{vendaBean.IniciaVenda}" styleClass="ui-priority-primary" />
-              	<p:commandButton value="Cadastrar Usuario" actionListener="venda.xhtml" styleClass="ui-priority-primary" />
+  				<h:button value="Cliente" outcome="cliente" />
+  				<h:commandButton value="Cadastrar Cliente" action="#{clienteBean.getCadastrarCliente()}" />            
+              	<h:commandButton value="Cadastrar Compra" action="#{compraBean.cadastrarCompra}" />
+              	<h:commandButton value="Iniciar Venda" action="#{vendaBean.IniciaVenda}" />
+              	<h:commandButton value="Cadastrar Usuario" action="venda.xhtml" />
               </h:panelGrid>
            </td>
         </tr>

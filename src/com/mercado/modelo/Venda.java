@@ -1,19 +1,35 @@
 package com.mercado.modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Venda {
 	private int codigo;
-	private String cpfCliente;
-	private int itens;
-	private int qtd_itens;
 	private Date dataVenda;
 	private float valorTotal;
-	
 	private Cliente cliente;
+	private ItemVenda itemVenda;
+	private List<ItemVenda> itensVenda;
+	//private String cpfCliente;
+	//private int itens;
+	//private int qtd_itens;
+	
+	
+	
+	//private Produto produto;
+	
+	public Venda(){
+		cliente = new Cliente();
+		itemVenda = new ItemVenda();
+	}
 	
 
-	public Venda() {
+	public Venda(Cliente cliente, ItemVenda itemVenda){
+		this.cliente = cliente;
+		this.itemVenda = itemVenda;
+		this.itensVenda = new ArrayList<ItemVenda>();
+		
 	}
 
 	public int getCodigo() {
@@ -24,7 +40,7 @@ public class Venda {
 		this.codigo = codigo;
 	}
 
-	public String getCpfCliente() {
+	/*public String getCpfCliente() {
 		return cpfCliente;
 	}
 
@@ -47,7 +63,7 @@ public class Venda {
 	public void setQtd_itens(int qtd_itens) {
 		this.qtd_itens = qtd_itens;
 	}
-
+*/
 	public Date getDataVenda() {
 		return dataVenda;
 	}
@@ -71,9 +87,36 @@ public class Venda {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+	public ItemVenda getItemVenda() {
+		return itemVenda;
+	}
+
+	public void setItemVenda(ItemVenda itemVenda) {
+		this.itemVenda = itemVenda;
+	}
+	
+	public List<ItemVenda> getItensVenda() {
+		return itensVenda;
+	}
+	
+/*	public Produto getProduto(){
+		
+		return produto;
+	}
+	
+	public void setProduto(Produto prod){
+		
+		this.produto = prod;
+	}
+	
+	public float getTotal(){
+		
+		return itemVenda.getValor() * qtd_itens;
+	}
 	
 	public String toString() {
         return this.cpfCliente;
-    }
+    }*/
 
 }

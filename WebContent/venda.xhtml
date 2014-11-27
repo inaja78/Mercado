@@ -20,27 +20,58 @@
 				<td width="200px" valign="top">
 					<h1>Iniciar Venda</h1> <h:panelGrid>
 						<h:outputLabel for="codigo" value="Codigo"></h:outputLabel>
-						<p:autoComplete  value="#{vendaBean.venda.codigo}" completeMethod="#{autoCompleteView.completeText}" />
-						
+						<h:inputText value="#{vendaBean.venda.codigo}" />
+
 						<h:outputLabel id="lbCpfCliente" for="cpfClientes"
 							value="Cpf Cliente"></h:outputLabel>
-						<p:autoComplete id="dd" dropdown="true" value="#{vendaBean.venda.cpfCliente}" completeMethod="#{autoCompleteView.completeText}" />	
-												
+						<h:inputText value="#{vendaBean.venda.cliente.cpf}" />
+
 						<h:outputLabel id="lbCodigoProduto" for="itens"
 							value="Código do Item"></h:outputLabel>
-						<p:autoComplete value="#{vendaBean.venda.itens}" completeMethod="#{autoCompleteView.completeText}" />
-						
-						<h:outputLabel id="lbDataVenda" for="dataVenda"
-							value="Data da Venda"></h:outputLabel>
-						<p:calendar id="popup" value="#{calendarView.date2}" />
-												
+						<h:inputText value="#{vendaBean.venda.itemVenda.produto.codigo}"/>
+
 						<h:outputLabel id="lbQtdItens" for="qtdItens"
 							value="Quantidade do Itens"></h:outputLabel>
-						<p:autoComplete  value="#{vendaBean.venda.qtd_itens}" completeMethod="#{autoCompleteView.completeText}" />
+						<h:inputText value="#{vendaBean.venda.itemVenda.qtd_venda}" />
 						
-					</h:panelGrid> <br /> <p:commandButton value="Inicio"
-						actionListener="#{vendaBean.Index}"
-						styleClass="ui-priority-primary" /><br />
+						<h:outputLabel id="lbQtdValor" for="valor"
+							value="Valor"></h:outputLabel>
+						<h:inputText value="#{vendaBean.venda.itemVenda.produto.valor}" />
+
+					</h:panelGrid> <br /> <p:dataTable id="tableVenda" value="#{vendaBean.itensVenda}"
+						var="iten" title="produtosAdicionados" border="1" rows="10">
+
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo Produto" />
+							</f:facet>
+							<h:outputText value="#{iten.produto.codigo}" />
+						</p:column>
+
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Quantidade de Itens" />
+							</f:facet>
+							<h:outputText value="#{iten.qtd_venda}" />
+						</p:column>
+
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Valor" />
+							</f:facet>
+							<h:outputText value="#{iten.produto.valor}" />
+						</p:column>
+
+					</p:dataTable> <p:growl id="growl" life="2000" />
+					<p:commandButton value="Adicionar Item"
+						actionListener="#{vendaBean.adicionarItens}" update="tableVenda" ajax="false"/> 
+						<p:commandButton value="Remover Item" action="#{vendaBean.Excluir}"
+						styleClass="ui-priority-primary" /> <p:commandButton
+						value="Pesquisar Produto" action="#{vendaBean.Pesquisar}"
+						styleClass="ui-priority-primary" /> <p:commandButton
+						value="Inicio" action="#{vendaBean.Index}"
+						styleClass="ui-priority-primary" /><h:commandButton value="Concluir Venda" action="#{vendaBean.Salvar}"/>
+						<br />
 				</td>
 			</tr>
 		</table>

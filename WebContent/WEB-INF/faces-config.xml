@@ -9,48 +9,60 @@
     <managed-bean>
 		<managed-bean-name>clienteBean</managed-bean-name>
 		<managed-bean-class>com.mercado.mb.ClienteMB</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
      <managed-bean>
 		<managed-bean-name>compraBean</managed-bean-name>
 		<managed-bean-class>com.mercado.mb.CompraMB</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
     <managed-bean>
 		<managed-bean-name>usuarioBean</managed-bean-name>
 		<managed-bean-class>com.mercado.mb.UsuarioMB</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
     <managed-bean>
 		<managed-bean-name>vendaBean</managed-bean-name>
 		<managed-bean-class>com.mercado.mb.VendaMB</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
     <navigation-rule>
-	    <from-view-id>index.xhtml</from-view-id>
+	    <from-view-id>/index.xhtml</from-view-id>
 	    <navigation-case>
 	        <from-outcome>index</from-outcome>
-	        <to-view-id>index.xhtml</to-view-id>
+	        <to-view-id>/index.xhtml</to-view-id>
 	    </navigation-case>
 	    <navigation-case>
 	        <from-outcome>iniciaVenda</from-outcome>
-	        <to-view-id>venda.xhtml</to-view-id>
+	        <to-view-id>/venda.xhtml</to-view-id>
 	    </navigation-case>
 	    <navigation-case>
 	        <from-outcome>cadastroCompra</from-outcome>
-	        <to-view-id>compra.xhtml</to-view-id>
+	        <to-view-id>/compra.xhtml</to-view-id>
+	    </navigation-case>
+	    <navigation-case>
+	        <from-outcome>cadastrarCliente</from-outcome>
+	        <to-view-id>/cliente.xhtml</to-view-id>
 	    </navigation-case>
 	</navigation-rule> 
 	
      <navigation-rule>
-	    <from-view-id>venda.xhtml</from-view-id>
+	    <from-view-id>/venda.xhtml</from-view-id>
 	    <navigation-case>
 	        <from-outcome>index</from-outcome>
-	        <to-view-id>index.xhtml</to-view-id>
+	        <to-view-id>/index.xhtml</to-view-id>
+	    </navigation-case>
+	 </navigation-rule> 
+	 
+     <navigation-rule>
+	    <from-view-id>/cliente.xhtml</from-view-id>
+	    <navigation-case>
+	        <from-outcome>index</from-outcome>
+	        <to-view-id>/index.xhtml</to-view-id>
 	    </navigation-case>
 	 </navigation-rule> 
 
