@@ -20,7 +20,7 @@ public class CompraMB {
 		setCompras(new ArrayList<Compra>());		
 	}
 	
-	public String salvar(){
+	public String Salvar(){
 		try{
 			compraDAO.adicionar(compra);
 			this.compra = new Compra();
@@ -32,7 +32,7 @@ public class CompraMB {
 		return "sucesso"; //string que leva para pagina de cadastro realizado
 	}
 	
-	public String excluir(Compra comp){
+	public String Excluir(Compra comp){
 		try{
 			compras.remove(comp);
 			this.compra = new Compra();
@@ -44,7 +44,7 @@ public class CompraMB {
 		return "sucesso";//string que leva para pagina de exclusao realizado
 	}
 	
-	public String pesquisar(){
+	public String Pesquisar(){
 		try{
 			this.compras = compraDAO.getLista(compra);
 		}catch (Exception ex) {
@@ -55,9 +55,19 @@ public class CompraMB {
 		return "pesquisar"; //string que leva para pagina de pesquisa
 	}
 	
-	public String editar(){
+	public String Editar(){
 		
 		return "alterar";
+	}
+	
+	public Compra getCompra(){
+		
+		return compra;
+	}
+	
+	public void setCompra(Compra compr){
+		
+		this.compra = compr;
 	}
 		
 	public List<Compra> getCompras(){

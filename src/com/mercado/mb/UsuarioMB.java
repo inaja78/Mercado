@@ -18,13 +18,13 @@ public class UsuarioMB {
 		
 	}
 	
-	public void adicionarUsuario() {
+	public void AdicionarUsuario() {
 	    System.out.println("Adicionar usuario " + usuario.getLogin());
 	    usuarios.add(usuario);
 	    usuario = new Usuario();
 	  }
 	
-	public String editar(){
+	public String Editar(){
 		
 		return "alterar"; //string que leva para pagina de cadastro
 	}
@@ -32,6 +32,11 @@ public class UsuarioMB {
 	public Usuario getUsuario() {
 	    return usuario;
 	  }
+	
+	public void setUsuario(Usuario user){
+		
+		this.usuario = user;
+	}
 
 	public void setUsuario(List<Usuario> usuarios) {
 	    this.usuarios = usuarios;

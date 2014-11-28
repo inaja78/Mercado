@@ -21,7 +21,7 @@ public class ClienteMB {
 		setClientes(new ArrayList<Cliente>());
 	}
 	
-	public String salvar(){
+	public String Salvar(){
 		try{
 			clienteDAO.adicionar(cliente);
 			this.cliente = new Cliente();
@@ -33,7 +33,7 @@ public class ClienteMB {
 		return "sucesso"; //string que leva para pagina de cadastro realizado 		
 	}
 	
-	public String excluir(Cliente cli){
+	public String Excluir(Cliente cli){
 		try{
 			clientes.remove(cli);
 			this.cliente = new Cliente();			
@@ -45,7 +45,7 @@ public class ClienteMB {
 		return "sucesso";//string que leva para pagina de exclusao realizado
 	}
 	
-	public String pesquisar(){
+	public String Pesquisar(){
 		try{
 			this.clientes = clienteDAO.getLista(cliente);
 		}catch (Exception ex) {
@@ -56,9 +56,19 @@ public class ClienteMB {
 		return "pesquisar"; //string que leva para pagina de pesquisa
 	}
 	
-	public String editar(){
+	public String Editar(){
 		
 		return "alterar"; //string que leva para pagina de cadastro
+	}
+	
+	public Cliente getCliente(){
+		
+		return cliente;
+	}
+	
+	public void setCliente(Cliente clie){
+		
+		this.cliente = clie;
 	}
 
 	public List<Cliente> getClientes() {
