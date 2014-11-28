@@ -7,7 +7,7 @@
 	
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Venda</title>
+	<title>Compra</title>
 </h:head>
 
 <h:body>
@@ -26,11 +26,11 @@
 
 						<h:outputLabel id="lbCpfVendedor" for="cpfVendedor"
 							value="Cpf Vendedor"></h:outputLabel>
-						<h:inputText value="#{compraBean.compra.vendedor.cpfVendedor}" />
+						<h:inputText value="#{compraBean.compra.vendedor.cpf}" />
 												
 						<h:outputLabel id="lbItens" for="itens"
 							value="Código do Item"></h:outputLabel>
-						<h:inputText value="#{compraBean.compra.itemCompra.produto.itens}" />
+						<h:inputText value="#{compraBean.compra.itens.produto.ItenCompra}" />
 
 						<h:outputLabel id="lbQtdItens" for="qtdItens"
 							value="Quantidade do Itens"></h:outputLabel>
