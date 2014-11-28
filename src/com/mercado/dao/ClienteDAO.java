@@ -41,7 +41,7 @@ public class ClienteDAO extends AbstractDAO<Cliente>{
 	
 	public void adicionar(Cliente cliente){
 		try {
-			PreparedStatement ptmt = conn.prepareStatement("insert into Cliente (cpf, nome, endereço, dataNascimento) values (?, ?, ?, ?)");
+			PreparedStatement ptmt = conn.prepareStatement("insert into Cliente (cpf, nome, endereco, dataNascimento) values (?, ?, ?, ?)");
 			ptmt.setString(1, cliente.getCpf());
 			ptmt.setString(2, cliente.getNome());
 			ptmt.setString(3, cliente.getEndereco());
