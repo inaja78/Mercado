@@ -1,10 +1,14 @@
 package com.mercado.dao;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.postgresql.jdbc2.optional.SimpleDataSource;
 
 import com.mercado.modelo.Produto;
 import com.mercado.modelo.Venda;
@@ -23,12 +27,14 @@ public class VendaDAO  extends AbstractDAO<Venda>{
 	
 	public void adicionar(Venda venda){
 		try{
-			PreparedStatement ptmt = conn.prepareStatement("insert into VENDA (codigo, cpfCliente, itens, qtd_itens, valorTotal) values (?, ?, ?, ?, ?)");
+			PreparedStatement ptmt = conn.prepareStatement("insert into VENDA (codigo, cpf_cliente, itens, qtd_itens, valor_total) values (?, ?, ?, ?, ?)");
 			ptmt.setInt(1, venda.getCodigo());
 			ptmt.setString(2, venda.getCliente().getCpf());
 			ptmt.setInt(3, venda.getItemVenda().getProduto().getCodigo());
 			ptmt.setInt(4, venda.getItemVenda().getQtd_venda());
 			ptmt.setDouble(5, venda.getValorTotal());
+			ptmt.executeUpdate();
+			ptmt.close();
 		}catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

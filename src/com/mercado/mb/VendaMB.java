@@ -11,6 +11,7 @@ import com.mercado.dao.VendaDAO;
 import com.mercado.modelo.ItemVenda;
 import com.mercado.modelo.Venda;
 
+
 @ManagedBean(name="vendaBean")
 @SessionScoped
 public class VendaMB {
@@ -42,7 +43,7 @@ public class VendaMB {
 		itensVenda = new ArrayList<ItemVenda>();
 	}
 	
-	public String Salvar(){
+	public String salvar(){
 		try{
 			vendaDAO.adicionar(venda);
 			this.venda = new Venda();
@@ -51,7 +52,7 @@ public class VendaMB {
 			this.erro = ex.getMessage();
 			return "erro";
 		}		
-		return "sucesso"; //string que leva para pagina de cadastro realizado
+		return "index"; //string que leva para pagina de cadastro realizado
 	}
 	
 	public String Excluir(Venda ven){
@@ -93,7 +94,7 @@ public class VendaMB {
 	}
 	
 	public void adicionarItens(){
-		venda.setValorTotal(venda.getItemVenda().getValor()*venda.getItemVenda().getQtd_venda());
+		venda.setValorTotal((venda.getItemVenda().getValor())*(venda.getItemVenda().getQtd_venda()));
 		itensVenda.add(venda.getItemVenda());
 	}
 	
