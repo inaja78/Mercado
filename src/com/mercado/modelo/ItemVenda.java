@@ -2,11 +2,21 @@ package com.mercado.modelo;
 
 public class ItemVenda {
 	private int cod_venda;
-	private int cod_produto;
+	//private int cod_produto;
 	private int qtd_venda;
-	private float valor;
+	//private float valor;
 	
 	private Produto produto;
+	
+	public ItemVenda(){
+		produto = new Produto();
+	}
+	
+	public ItemVenda(Produto produto, int qtd_venda, int cod_venda){
+		this.produto = produto;
+		this.qtd_venda = qtd_venda;
+		this.cod_venda = cod_venda;
+	}
 
 	public int getCod_venda() {
 		return cod_venda;
@@ -16,14 +26,14 @@ public class ItemVenda {
 		this.cod_venda = cod_venda;
 	}
 
-	public int getCod_produto() {
+	/*public int getCod_produto() {
 		return cod_produto;
 	}
 
 	public void setCod_produto(int cod_produto) {
 		this.cod_produto = cod_produto;
-	}
-
+	}*/
+	
 	public int getQtd_venda() {
 		return qtd_venda;
 	}
@@ -32,13 +42,13 @@ public class ItemVenda {
 		this.qtd_venda = qtd_venda;
 	}
 
-	public float getValor() {
+	/*public float getValor() {
 		return valor;
 	}
 
 	public void setValor(float valor) {
 		this.valor = valor;
-	}
+	}*/
 
 	public Produto getProduto() {
 		return produto;
@@ -46,6 +56,11 @@ public class ItemVenda {
 
 	public void setProduto(Produto produto) {
 		this.produto = produto;
+	}
+	
+	public Float getValor(){
+		
+		return produto.getValor() * qtd_venda;
 	}
 	
 	/*public String toString() {

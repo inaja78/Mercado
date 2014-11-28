@@ -1,12 +1,18 @@
 package com.mercado.mb;
 
 import java.util.ArrayList;
+
 import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import com.mercado.dao.AbstractDAO;
 import com.mercado.dao.CompraDAO;
 import com.mercado.modelo.Compra;
 
+@ManagedBean(name="compraBean")
+@SessionScoped
 public class CompraMB {
 	private Compra compra;
 	private AbstractDAO<Compra> compraDAO;
@@ -20,7 +26,7 @@ public class CompraMB {
 		setCompras(new ArrayList<Compra>());		
 	}
 	
-	public String Salvar(){
+	public String getSalvar(){
 		try{
 			compraDAO.adicionar(compra);
 			this.compra = new Compra();
@@ -29,7 +35,7 @@ public class CompraMB {
 			this.erro = ex.getMessage();
 			return "erro";
 		}		
-		return "sucesso"; //string que leva para pagina de cadastro realizado
+		return "index"; //string que leva para pagina de cadastro realizado
 	}
 	
 	public String Excluir(Compra comp){
@@ -55,9 +61,19 @@ public class CompraMB {
 		return "pesquisar"; //string que leva para pagina de pesquisa
 	}
 	
-	public String Editar(){
+	public String getEditar(){
 		
 		return "alterar";
+	}
+	
+	public String getIndex(){
+		
+		return "index";
+	}
+	
+	public String cadastrarCompra(){
+		
+		return "cadastroCompra";
 	}
 	
 	public Compra getCompra(){

@@ -3,10 +3,15 @@ package com.mercado.mb;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
 import com.mercado.dao.AbstractDAO;
 import com.mercado.dao.ClienteDAO;
 import com.mercado.modelo.Cliente;
 
+@ManagedBean(name="clienteBean")
+@SessionScoped
 public class ClienteMB {
 	
 	private Cliente cliente;
@@ -21,7 +26,11 @@ public class ClienteMB {
 		setClientes(new ArrayList<Cliente>());
 	}
 	
-	public String Salvar(){
+	public void Teste() {
+		System.out.println("teste");
+	}
+	
+	public String salvarCliente(){
 		try{
 			clienteDAO.adicionar(cliente);
 			this.cliente = new Cliente();
@@ -30,7 +39,7 @@ public class ClienteMB {
 			this.erro = ex.getMessage();
 			return "erro";
 		}		
-		return "sucesso"; //string que leva para pagina de cadastro realizado 		
+		return "index"; //string que leva para pagina de cadastro realizado 		
 	}
 	
 	public String Excluir(Cliente cli){
@@ -56,19 +65,29 @@ public class ClienteMB {
 		return "pesquisar"; //string que leva para pagina de pesquisa
 	}
 	
-	public String Editar(){
+	public String getIndex(){
 		
-		return "alterar"; //string que leva para pagina de cadastro
+		return "index";
 	}
 	
-	public Cliente getCliente(){
+	public String getCadastrarCliente(){
 		
-		return cliente;
+		return "cliente"; //string que leva para pagina de cadastro
+	}
+	
+	public String getEditar(){
+		
+		return "cliente"; //string que leva para pagina de cadastro
 	}
 	
 	public void setCliente(Cliente clie){
 		
 		this.cliente = clie;
+	}
+	
+	public Cliente getCliente(){
+		
+		return cliente;
 	}
 
 	public List<Cliente> getClientes() {
