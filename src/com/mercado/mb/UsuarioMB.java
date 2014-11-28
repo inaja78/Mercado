@@ -26,7 +26,7 @@ public class UsuarioMB {
 
 	}
 
-	public void AdicionarUsuario() {
+	public void getAdicionarUsuario() {
 		System.out.println("Adicionar usuario " + usuario.getLogin());
 		usuarios.add(usuario);
 		usuario = new Usuario();
@@ -38,8 +38,12 @@ public class UsuarioMB {
 		}
 		else{
 			return "erro";
-		}
+		}		
+	}
+	
+	public String getCadastrarUsuario(){
 		
+		return "cadastrarUsuario";
 	}
 
 	public String Editar() {

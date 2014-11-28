@@ -1,6 +1,5 @@
 package com.mercado.dao;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,13 +23,14 @@ public class CompraDAO extends AbstractDAO<Compra>{
 	
 	public void adicionar(Compra compra) {
 		try{
-			PreparedStatement ptmt = conn.prepareStatement("insert into Venda (cod_compra, cpfVendedor, itens, qtd_itens, dataCompra, valorTotal) values (?, ?, ?, ?, ?, ?)");
+			PreparedStatement ptmt = conn.prepareStatement("insert into COMPRA (cod_compra, cpf_vendedor, itens, qtd_itens, valor_total) values (?, ?, ?, ?, ?)");
 			ptmt.setInt(1, compra.getCod_compra());
 			ptmt.setString(2, compra.getCpfVendedor());
 			ptmt.setInt(3, compra.getItens());
 			ptmt.setInt(4, compra.getQtd_itens());
-			ptmt.setDate(5, (Date) compra.getDataCompra());
-			ptmt.setDouble(6, compra.getValorTotal());
+			ptmt.setDouble(5, compra.getValorTotal());
+			ptmt.executeUpdate();
+			ptmt.close();
 		}catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -51,8 +51,8 @@ public class CompraDAO extends AbstractDAO<Compra>{
 
 	public List<Compra> getLista(Compra compra) {
 		try{
-			PreparedStatement ptmt = conn.prepareStatement("select * from Compra where cod_compra like ?");
-			ptmt.setString(1, "%" + compra.getCod_compra() + "%");
+			PreparedStatement ptmt = conn.prepareStatement("select * from COMPRA where cod_compra = ?");
+			ptmt.setInt(1, compra.getCod_compra());
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()){
 				compra = new Compra();
@@ -68,7 +68,7 @@ public class CompraDAO extends AbstractDAO<Compra>{
 	
 	public List<Produto> getListaProduto(Produto produto){
 		try{
-			PreparedStatement ptmt = conn.prepareStatement("select * from Produto where codigo like ?");
+			PreparedStatement ptmt = conn.prepareStatement("select * from PRODUTO where codigo like ?");
 			ptmt.setString(1, "%" + produto.getCodigo() + "%");
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()){
@@ -85,7 +85,7 @@ public class CompraDAO extends AbstractDAO<Compra>{
 	
 	public List<Vendedor> getListaVendedor(Vendedor vendedor){
 		try{
-			PreparedStatement ptmt = conn.prepareStatement("select * from Vendedor where cpf like ?");
+			PreparedStatement ptmt = conn.prepareStatement("select * from VENDEDOR where cpf like ?");
 			ptmt.setString(1, "%" + vendedor.getCpf() + "%");
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()){

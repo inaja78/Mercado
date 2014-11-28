@@ -53,8 +53,8 @@
 	        <to-view-id>/venda.xhtml</to-view-id>
 	    </navigation-case>
 	    <navigation-case>
-	        <from-outcome>cadastroCompra</from-outcome>
-	        <to-view-id>/compra.xhtml</to-view-id>
+	        <from-outcome>cadastrarCompra</from-outcome>
+	        <to-view-id>/cadastroCompra.xhtml</to-view-id>
 	    </navigation-case>
 	    <navigation-case>
 	        <from-outcome>cadastrarCliente</from-outcome>
@@ -68,7 +68,10 @@
 	        <from-outcome>cadastrarProduto</from-outcome>
 	        <to-view-id>/cadastroProduto.xhtml</to-view-id>
 	    </navigation-case>
-	    
+	    <navigation-case>
+	        <from-outcome>cadastrarUsuario</from-outcome>
+	        <to-view-id>/usuario.xhtml</to-view-id>
+	    </navigation-case>	    
 	</navigation-rule> 
 	
      <navigation-rule>

@@ -73,7 +73,7 @@ public class CompraMB {
 	
 	public String cadastrarCompra(){
 		
-		return "cadastroCompra";
+		return "cadastrarCompra";
 	}
 	
 	public Compra getCompra(){

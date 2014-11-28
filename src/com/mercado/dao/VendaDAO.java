@@ -72,7 +72,7 @@ public class VendaDAO  extends AbstractDAO<Venda>{
 	
 	public List<Produto> getListaProduto(Produto produto){
 		try{
-			PreparedStatement ptmt = conn.prepareStatement("select * from Produto where codigo like ?");
+			PreparedStatement ptmt = conn.prepareStatement("select * from PRODUTO where codigo like ?");
 			ptmt.setString(1, "%" + produto.getCodigo() + "%");
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()){

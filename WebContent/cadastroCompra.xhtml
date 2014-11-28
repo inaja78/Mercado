@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+		
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Compra</title>
+</h:head>
+<h:body>
+	<h:form>
+		<table>
+			<tr>
+				<td colspan="2" align="center">
+					<h1>Sistema SuperMerc@do</h1>
+				</td>
+			</tr>
+			<tr>
+				<td width="200px" valign="top">
+					<h1>IniciarCompra</h1> <h:panelGrid>
+						<h:outputLabel for="cod_compra" value="Codigo"></h:outputLabel>
+						<h:inputText value="#{compraBean.compra.cod_compra}" />
+
+						<h:outputLabel id="lbCpfVendedor" for="cpfVendedor"
+							value="Cpf Vendedor"></h:outputLabel>
+						<h:inputText value="#{compraBean.compra.cpfVendedor}" />
+												
+						<h:outputLabel id="lbItens" for="itens"
+							value="Código do Item"></h:outputLabel>
+						<h:inputText value="#{compraBean.compra.itens}" />
+
+						<h:outputLabel id="lbQtdItens" for="qtdItens"
+							value="Quantidade do Itens"></h:outputLabel>
+						<h:inputText value="#{compraBean.compra.qtd_itens}" />
+						
+						<h:outputLabel id="lbQtdValorTotal" for="valor" value="Valor Total"></h:outputLabel>
+						<h:inputText value="#{compraBean.compra.valorTotal}" />
+
+					</h:panelGrid> <br /> 						
+						<p:dataTable id="tableCompra" value="#{compraBean.compras}" var="iten" title="produtosAdicionados" border="1" rows="10">
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo Produto" />
+							</f:facet>
+							<h:outputText value="#{iten.produto.codigo}" />
+						</p:column>
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Quantidade de Itens" />
+							</f:facet>
+							<h:outputText value="#{iten.qtd_venda}" />
+						</p:column>
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Valor" />
+							</f:facet>
+							<h:outputText value="#{iten.produto.valor}" />
+						</p:column>
+					</p:dataTable>
+						
+					<p:growl id="growl" life="2000" /> <p:commandButton
+						value="Adicionar Item"
+						action="#{compraBean.compras}" update="tableCompra"
+						ajax="false" /> <p:commandButton value="Remover Item"
+						action="#{compraBean.Excluir}" styleClass="ui-priority-primary" />
+					<p:commandButton value="Pesquisar Produto"
+						action="#{compraBean.Pesquisar}" styleClass="ui-priority-primary" />
+					<p:commandButton value="Inicio" action="#{compraBean.index}"
+						styleClass="ui-priority-primary" /> 
+						<h:commandButton value="Concluir Compra" action="#{compraBean.getSalvar}" /> <br />
+				</td>
+			</tr>
+		</table>
+	</h:form>
+
+</h:body>
+</html>
