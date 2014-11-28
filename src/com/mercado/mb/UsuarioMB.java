@@ -3,49 +3,67 @@ package com.mercado.mb;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mercado.modelo.Usuario;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
+import com.mercado.modelo.Usuario;
+import com.mercado.dao.LoginDAO;
+
+@ManagedBean(name = "usuarioBean")
+@RequestScoped
 public class UsuarioMB {
-	
+
 	private Usuario usuario;
+	private List<LoginDAO> loginDAO;
 	private List<Usuario> usuarios;
-	
+
 	private String erro;
-	
-	public UsuarioMB(){
+
+	public UsuarioMB() {
 		usuario = new Usuario();
+		loginDAO = (new ArrayList<LoginDAO>());
 		setUsuario(new ArrayList<Usuario>());
-		
+
+	}
+
+	public void AdicionarUsuario() {
+		System.out.println("Adicionar usuario " + usuario.getLogin());
+		usuarios.add(usuario);
+		usuario = new Usuario();
 	}
 	
-	public void AdicionarUsuario() {
-	    System.out.println("Adicionar usuario " + usuario.getLogin());
-	    usuarios.add(usuario);
-	    usuario = new Usuario();
-	  }
-	
-	public String Editar(){
+	public String getLogin(Usuario user){
+		if(usuario.getSenha().equals(loginDAO)){
+			return "home";
+		}
+		else{
+			return "erro";
+		}
 		
-		return "alterar"; //string que leva para pagina de cadastro
+	}
+
+	public String Editar() {
+
+		return "alterar"; // string que leva para pagina de cadastro
 	}
 
 	public Usuario getUsuario() {
-	    return usuario;
-	  }
-	
-	public void setUsuario(Usuario user){
-		
+		return usuario;
+	}
+
+	public void setUsuario(Usuario user) {
+
 		this.usuario = user;
 	}
 
 	public void setUsuario(List<Usuario> usuarios) {
-	    this.usuarios = usuarios;
-	  }
+		this.usuarios = usuarios;
+	}
 
 	public List<Usuario> getUsuarios() {
-	    return usuarios;
-	  }
-	
+		return usuarios;
+	}
+
 	public String getErro() {
 		return erro;
 	}

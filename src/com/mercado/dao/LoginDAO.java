@@ -5,15 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.mercado.modelo.Usuario;
 
 public class LoginDAO {
 	
 	protected Connection conn;
+	private List<Usuario> user = new ArrayList<Usuario>();
 	
 	public LoginDAO(){
 		super();
+		user = new ArrayList<Usuario>();
 		try {
 			conn = FabricaConexao.getInstance().getConexao();
 		} catch (SQLException e) {
@@ -23,22 +26,20 @@ public class LoginDAO {
 	
 	public ArrayList<Usuario> getUsuarios() {
 		try{
-			PreparedStatement ptmt = conn.prepareStatement("select * from Usario");
+			PreparedStatement ptmt = conn.prepareStatement("select * from USUARIO where senha like ?");
 			ResultSet rs = ptmt.executeQuery();
-			ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
 			
 			while(rs.next()) {
 				Usuario u1 = new Usuario();
-				u1.setLogin(rs.getString("login"));
 				u1.setSenha(rs.getString("senha"));
-				listaUsuarios.add(u1);
+				user.add(u1);
 			}
 			rs.close();
 			ptmt.close();
-			return listaUsuarios;
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
-		}		
+		}	
+		return (ArrayList<Usuario>) user;
 	}
 
 }

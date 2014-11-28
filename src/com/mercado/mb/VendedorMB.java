@@ -61,6 +61,11 @@ public class VendedorMB {
 		}
 		return "pesquisar"; // string que leva para pagina de pesquisa
 	}
+	
+	public String getPesquisa(){
+		
+		return "pesquisar";
+	}
 
 	public String getCadastrar() {
 
@@ -83,7 +88,7 @@ public class VendedorMB {
 	}
 
 	public List<Vendedor> getVendedores() {
-		vendedores = vendedorDAO.getLista(vendedor);
+		vendedores = vendedorDAO.getLista();
 		return vendedores;
 	}
 

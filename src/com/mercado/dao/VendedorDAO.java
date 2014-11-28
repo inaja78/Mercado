@@ -19,7 +19,22 @@ public class VendedorDAO extends AbstractDAO<Vendedor>{
 
 	@Override
 	public List<Vendedor> getLista(Vendedor vendedor) {
+		
 		try {
+			PreparedStatement ptmt = conn.prepareStatement("select * from VENDEDOR");
+			ResultSet rs = ptmt.executeQuery();
+			while (rs.next()) {
+				listaVendedor = new ArrayList<Vendedor>();
+				listaVendedor.add(vendedor);
+			}
+			rs.close();
+			ptmt.close();
+			} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return listaVendedor;
+		/*try {
 			PreparedStatement ptmt = conn.prepareStatement("select * from VENDEDOR where nome like ?");
 			ptmt.setString(1, "%" + vendedor.getNome() + "%");
 			ResultSet rs = ptmt.executeQuery();
@@ -32,7 +47,7 @@ public class VendedorDAO extends AbstractDAO<Vendedor>{
 			} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		return listaVendedor;
+		return listaVendedor;*/
 	}
 
 	@Override

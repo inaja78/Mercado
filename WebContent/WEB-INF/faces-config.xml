@@ -21,7 +21,7 @@
     <managed-bean>
 		<managed-bean-name>usuarioBean</managed-bean-name>
 		<managed-bean-class>com.mercado.mb.UsuarioMB</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
+		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	
     <managed-bean>
@@ -84,6 +84,14 @@
 	    <navigation-case>
 	        <from-outcome>index</from-outcome>
 	        <to-view-id>/index.xhtml</to-view-id>
+	    </navigation-case>
+	 </navigation-rule> 
+	 
+     <navigation-rule>
+	    <from-view-id>/cadastroVendedor.xhtml</from-view-id>
+	    <navigation-case>
+	        <from-outcome>pesquisar</from-outcome>
+	        <to-view-id>/pesquisarVendedor.xhtml</to-view-id>
 	    </navigation-case>
 	 </navigation-rule> 
 
