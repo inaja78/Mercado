@@ -39,7 +39,7 @@ public class ClienteMB {
 			this.erro = ex.getMessage();
 			return "erro";
 		}		
-		return "index"; //string que leva para pagina de cadastro realizado 		
+		return "sucesso"; //string que leva para pagina de cadastro realizado 		
 	}
 	
 	public String Excluir(Cliente cli){
@@ -54,7 +54,7 @@ public class ClienteMB {
 		return "sucesso";//string que leva para pagina de exclusao realizado
 	}
 	
-	public String Pesquisar(){
+	public String getPesquisar(){
 		try{
 			this.clientes = clienteDAO.getLista(cliente);
 		}catch (Exception ex) {
