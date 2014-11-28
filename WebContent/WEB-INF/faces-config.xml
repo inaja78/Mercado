@@ -30,6 +30,18 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
+    <managed-bean>
+		<managed-bean-name>vendedorBean</managed-bean-name>
+		<managed-bean-class>com.mercado.mb.VendedorMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+    <managed-bean>
+		<managed-bean-name>produtoBean</managed-bean-name>
+		<managed-bean-class>com.mercado.mb.ProdutoMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
     <navigation-rule>
 	    <from-view-id>/index.xhtml</from-view-id>
 	    <navigation-case>
@@ -48,6 +60,15 @@
 	        <from-outcome>cadastrarCliente</from-outcome>
 	        <to-view-id>/cliente.xhtml</to-view-id>
 	    </navigation-case>
+	    <navigation-case>
+	        <from-outcome>cadastrarVendedor</from-outcome>
+	        <to-view-id>/cadastroVendedor.xhtml</to-view-id>
+	    </navigation-case>
+	    <navigation-case>
+	        <from-outcome>cadastrarProduto</from-outcome>
+	        <to-view-id>/cadastroProduto.xhtml</to-view-id>
+	    </navigation-case>
+	    
 	</navigation-rule> 
 	
      <navigation-rule>

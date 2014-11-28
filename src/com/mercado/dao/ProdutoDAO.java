@@ -19,7 +19,7 @@ public class ProdutoDAO extends AbstractDAO<Produto>{
 	
 	public List<Produto> getLista(Produto produto) {
 		try {
-			PreparedStatement ptmt = conn.prepareStatement("select * from Produto where nome like ?");
+			PreparedStatement ptmt = conn.prepareStatement("select * from PRODUTO where nome like ?");
 			ptmt.setString(1, "%" + produto.getNome() + "%");
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()) {
@@ -40,7 +40,7 @@ public class ProdutoDAO extends AbstractDAO<Produto>{
 
 	public void adicionar(Produto produto) {
 		try {
-			PreparedStatement ptmt = conn.prepareStatement("insert into Produto(codigo, nome, qtdVenda, qtdCompra, qtdEstoque, valor) values (?, ?, ?, ?, ?, ?)");
+			PreparedStatement ptmt = conn.prepareStatement("insert into PRODUTO(codigo, nome, qtd_venda, qtd_compra, qtd_estoque, valor) values (?, ?, ?, ?, ?, ?)");
 			ptmt.setInt(1, produto.getCodigo());
 			ptmt.setString(2, produto.getNome());
 			ptmt.setInt(3, produto.getQtdVenda());

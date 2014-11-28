@@ -1,14 +1,10 @@
 package com.mercado.dao;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.postgresql.jdbc2.optional.SimpleDataSource;
 
 import com.mercado.modelo.Produto;
 import com.mercado.modelo.Venda;

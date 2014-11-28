@@ -20,7 +20,7 @@ public class VendedorDAO extends AbstractDAO<Vendedor>{
 	@Override
 	public List<Vendedor> getLista(Vendedor vendedor) {
 		try {
-			PreparedStatement ptmt = conn.prepareStatement("select * from Vendedor where nome like ?");
+			PreparedStatement ptmt = conn.prepareStatement("select * from VENDEDOR where nome like ?");
 			ptmt.setString(1, "%" + vendedor.getNome() + "%");
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()) {
@@ -42,7 +42,7 @@ public class VendedorDAO extends AbstractDAO<Vendedor>{
 	
 	public void adicionar(Vendedor vendedor) {
 		try{
-			PreparedStatement ptmt = conn.prepareStatement("insert into Produto(cpf, nome) values (?, ?)");
+			PreparedStatement ptmt = conn.prepareStatement("insert into VENDEDOR(cpf, nome) values (?, ?)");
 			ptmt.setString(1, vendedor.getCpf());
 			ptmt.setString(2, vendedor.getNome());
 			ptmt.executeUpdate();

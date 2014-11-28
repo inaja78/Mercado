@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+</h:head>
+
+<body>
+	<h:form>
+		<h1>Cadastro de Produtos</h1>
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Codigo:" />
+			<h:inputText id="codigo" value="#{produtoBean.produto.codigo}" size="20" />
+			<h:message for="codigo" />
+
+			<h:outputLabel value="Nome:" />
+			<h:inputText id="nome" value="#{produtoBean.produto.nome}" size="20" />
+			<h:message for="nome" />
+
+			<h:outputLabel value="Quantidade venda:" />
+			<h:inputText id="qtdVenda" value="#{produtoBean.produto.qtdVenda}" size="20" />
+			<h:message for="qtdVenda" />
+
+			<h:outputLabel value="Quantidade Compra:" />
+			<h:inputText id="qtdCompra" value="#{produtoBean.produto.qtdCompra}" size="20" />
+			<h:message for="qtdCompra" />
+			
+			<h:outputLabel value="Quantidade Estoque:" />
+			<h:inputText id="qtdEstoque" value="#{produtoBean.produto.qtdEstoque}" size="20" />
+			<h:message for="qtdEstoque" />
+			
+			<h:outputLabel value="valor:" />
+			<h:inputText id="valor" value="#{produtoBean.produto.qtdValor}" size="20" />
+			<h:message for="valore" />
+
+	
+			<h:commandButton id="btnE" value="Salvar" type="submit"
+				action="#{produtoBean.salvarProduto}" />
+			<h:commandButton id="btnL" value="Limpar" type="reset" />
+
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>

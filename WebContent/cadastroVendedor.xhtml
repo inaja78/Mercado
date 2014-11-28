@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Vendedor</title>
+</h:head>
+<body>
+	<h:form>
+		<h1>Cadastro de Vendedor</h1>
+
+		<h:panelGrid columns="3">
+			<h:outputLabel value="CPF:" />
+			<h:inputText id="cpf" value="#{vendedorBean.vendedor.cpf}" size="20" />
+			<h:message for="cpf" />
+
+			<h:outputLabel value="Nome:" />
+			<h:inputText id="nome" value="#{vendedorBean.vendedor.nome}"
+				size="20" />
+			<h:message for="nome" />
+
+			<h:commandButton value="Salvar" type="submit"
+				action="#{vendedorBean.salvar}" />
+			<h:commandButton id="btnL" value="Limpar" type="reset" />
+
+		</h:panelGrid>
+	</h:form>
+
+</body>
+</html>
