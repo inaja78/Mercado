@@ -30,21 +30,21 @@
 												
 						<h:outputLabel id="lbItens" for="itens"
 							value="Código do Item"></h:outputLabel>
-						<h:inputText value="#{compraBean.compra.itens.produto.ItenCompra}" />
+						<h:inputText value="#{compraBean.compra.itens}" />
 
 						<h:outputLabel id="lbQtdItens" for="qtdItens"
 							value="Quantidade do Itens"></h:outputLabel>
-						<h:inputText value="#{compraBean.compra.itemcompra.qtd_venda}" />
+						<h:inputText value="#{compraBean.compra.qtd_itens}" />
 						
 						<h:outputLabel id="dataCompra" for="dataCompra"
 							value="Cpf Vendedor"></h:outputLabel>
-						<h:inputText value="#{compraBean.compra.vendedor.dataCompra}" />
+						<h:inputText value="#{compraBean.compra.dataCompra}" />
 						
 						<h:outputLabel id="lbQtdValorTotal" for="valor" value="Valor Total"></h:outputLabel>
-						<h:inputText value="#{compraBean.compra.itemVenda.produto.valorTotal}" />
+						<h:inputText value="#{compraBean.compra.valorTotal}" />
 
 					</h:panelGrid> <br /> 						
-						<p:dataTable id="tableVenda" value="#{vendaBean.itensVenda}" var="iten" title="produtosAdicionados" border="1" rows="10">
+						<p:dataTable id="tableVenda" value="#{vendaBean.vendas}" var="iten" title="produtosAdicionados" border="1" rows="10">
 						<p:column>
 							<f:facet name="header">
 								<h:outputText value="Codigo Produto" />
