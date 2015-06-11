@@ -1,4 +1,4 @@
-package com.mercado.mb;
+package com.closet.mb;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-import com.mercado.modelo.Usuario;
-import com.mercado.dao.LoginDAO;
+import com.closet.dao.LoginDAO;
+import com.closet.modelo.Usuario;
 
 @ManagedBean(name = "usuarioBean")
 @RequestScoped

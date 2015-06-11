@@ -8,37 +8,37 @@
     
     <managed-bean>
 		<managed-bean-name>clienteBean</managed-bean-name>
-		<managed-bean-class>com.mercado.mb.ClienteMB</managed-bean-class>
+		<managed-bean-class>com.closet.mb.ClienteMB</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
      <managed-bean>
 		<managed-bean-name>compraBean</managed-bean-name>
-		<managed-bean-class>com.mercado.mb.CompraMB</managed-bean-class>
+		<managed-bean-class>com.closet.mb.CompraMB</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
     <managed-bean>
 		<managed-bean-name>usuarioBean</managed-bean-name>
-		<managed-bean-class>com.mercado.mb.UsuarioMB</managed-bean-class>
+		<managed-bean-class>com.closet.mb.UsuarioMB</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	
     <managed-bean>
 		<managed-bean-name>vendaBean</managed-bean-name>
-		<managed-bean-class>com.mercado.mb.VendaMB</managed-bean-class>
+		<managed-bean-class>com.closet.mb.VendaMB</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
     <managed-bean>
 		<managed-bean-name>vendedorBean</managed-bean-name>
-		<managed-bean-class>com.mercado.mb.VendedorMB</managed-bean-class>
+		<managed-bean-class>com.closet.mb.VendedorMB</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
     <managed-bean>
 		<managed-bean-name>produtoBean</managed-bean-name>
-		<managed-bean-class>com.mercado.mb.ProdutoMB</managed-bean-class>
+		<managed-bean-class>com.closet.mb.PecaMB</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	

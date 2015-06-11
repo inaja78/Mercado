@@ -1,4 +1,4 @@
-package com.mercado.mb;
+package com.closet.mb;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,30 +6,30 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.mercado.dao.AbstractDAO;
-import com.mercado.dao.ProdutoDAO;
-import com.mercado.modelo.Produto;
+import com.closet.dao.AbstractDAO;
+import com.closet.dao.PecaDAO;
+import com.closet.modelo.Peca;
 
-@ManagedBean(name = "produtoMB")
+@ManagedBean(name = "pecaMB")
 @SessionScoped
-public class ProdutoMB {
+public class PecaMB {
 
-	private Produto produto;
-	private AbstractDAO<Produto> produtoDAO;
-	private List<Produto> produtos;
+	private Peca produto;
+	private AbstractDAO<Peca> produtoDAO;
+	private List<Peca> produtos;
 
 	private String erro;
 
-	public ProdutoMB() {
-		produto = new Produto();
-		produtoDAO = new ProdutoDAO();
-		setProdutos(new ArrayList<Produto>());
+	public PecaMB() {
+		produto = new Peca();
+		produtoDAO = new PecaDAO();
+		setProdutos(new ArrayList<Peca>());
 	}
 
 	public String getSalvarProduto() {
 		try {
 			produtoDAO.adicionar(produto);
-			this.produto = new Produto();
+			this.produto = new Peca();
 		} catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.setErro(ex.getMessage());
@@ -38,10 +38,10 @@ public class ProdutoMB {
 		return "sucesso"; // string que leva para pagina de cadastro realizado
 	}
 	
-	public String getExcluir(Produto prod){
+	public String getExcluir(Peca prod){
 		try {
 			produtos.remove(prod);
-			this.produto = new Produto();			
+			this.produto = new Peca();			
 		}catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
@@ -71,23 +71,23 @@ public class ProdutoMB {
 		return "cadastrarProduto";
 	}
 	
-	public Produto getProduto(){
+	public Peca getProduto(){
 		
 		return produto;
 	}
 	
-	public void setProduto(Produto prod){
+	public void setProduto(Peca prod){
 		
 		this.produto = prod;
 	}
 	
-	public List<Produto> getProdutos(){
+	public List<Peca> getProdutos(){
 		
 		produtos = produtoDAO.getLista(produto);
 		return produtos;
 	}
 	
-	public void setProdutos(List<Produto> produs){
+	public void setProdutos(List<Peca> produs){
 		
 		this.produtos = produs;
 	}

@@ -1,4 +1,4 @@
-package com.mercado.mb;
+package com.closet.mb;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.mercado.dao.AbstractDAO;
-import com.mercado.dao.VendaDAO;
-import com.mercado.modelo.ItemVenda;
-import com.mercado.modelo.Venda;
+import com.closet.dao.AbstractDAO;
+import com.closet.dao.VendaDAO;
+import com.closet.modelo.ItemVenda;
+import com.closet.modelo.Venda;
 
 
 @ManagedBean(name="vendaBean")
@@ -20,9 +20,17 @@ public class VendaMB {
 	private ItemVenda itemVenda;
 	private AbstractDAO<Venda> vendaDAO;
 	private List<Venda> vendas;
+	//private ArrayList<String> carrinho;
 	private List<ItemVenda> itensVenda;
 	private float total;
-
+	
+	public VendaMB(){
+		itemVenda = new ItemVenda();
+		venda = new Venda();
+		vendaDAO = new VendaDAO();
+		setVendas(new ArrayList<Venda>());
+		itensVenda = new ArrayList<ItemVenda>();
+	}
 	
 	public ItemVenda getItemVenda() {
 		return itemVenda;
@@ -34,14 +42,6 @@ public class VendaMB {
 
 	//private Doubel totalVenda;
 	private String erro;
-	
-	public VendaMB(){
-		itemVenda = new ItemVenda();
-		venda = new Venda();
-		vendaDAO = new VendaDAO();
-		setVendas(new ArrayList<Venda>());
-		itensVenda = new ArrayList<ItemVenda>();
-	}
 	
 	public String salvar(){
 		try{
@@ -55,17 +55,33 @@ public class VendaMB {
 		return "index"; //string que leva para pagina de cadastro realizado
 	}
 	
-	public String Excluir(Venda ven){
-		try{
-			vendas.remove(ven);
-			this.venda = new Venda();
-		}catch (Exception ex) {
-			System.out.println("Erro:" + ex);
-			this.erro = ex.getMessage();
-			return "erro";
-		}
+	public void adicionarItens(){
+		venda.setValorTotal((venda.getItemVenda().getValor())*(venda.getItemVenda().getQtd_venda()));
+		itensVenda.add(venda.getItemVenda());
+	}
+	
+	/*public void adicionarItens(){
+		System.out.println("Adicionou");
+		this.itemVenda.setValor(itemVenda.getValor()*itemVenda.getProduto().getValor());
+		this.itensVenda.add(itemVenda);
+		this.total += itemVenda.getValor();
+		this.itemVenda = new ItemVenda();
+	}*/
+	
+	public String Excluir(ItemVenda item){
+		System.out.println("Removendo...");
+		itensVenda.remove(item);
+		total -= itemVenda.getValor();
 		return "sucesso";//string que leva para pagina de exclusao realizado
 	}
+
+    public String finalizarVenda() {
+        VendaDAO venDAO = new VendaDAO();
+        itemVenda.setVenda(venda);
+        venDAO.adicionar(venda);
+        venda = new Venda();
+        return "venda";
+    }
 	
 	public String Pesquisar(){
 		try{
@@ -77,7 +93,7 @@ public class VendaMB {
 		}		
 		return "pesquisar"; //string que leva para pagina de pesquisa
 	}
-	
+		
 	public String Index(){
 		
 		return "index";
@@ -91,11 +107,6 @@ public class VendaMB {
 	public String IniciaVenda(){
 		
 		return "iniciaVenda";//string que leva para pagina de exclusao realizado
-	}
-	
-	public void adicionarItens(){
-		venda.setValorTotal((venda.getItemVenda().getValor())*(venda.getItemVenda().getQtd_venda()));
-		itensVenda.add(venda.getItemVenda());
 	}
 	
 	public String TotalVenda(){
@@ -145,5 +156,13 @@ public class VendaMB {
 	public List<ItemVenda> getItensVenda(){
 		return itensVenda;
 	}
+
+	/*public ArrayList getCarrinhoCompras() {
+		return carrinhoCompras;
+	}
+
+	public void setCarrinhoCompras(ArrayList carrinhoCompras) {
+		this.carrinhoCompras = carrinhoCompras;
+	}*/
 
 }

@@ -1,4 +1,4 @@
-package com.mercado.modelo;
+package com.closet.modelo;
 
 public class ItemCompra {
 	private int cod_compra;
@@ -6,7 +6,7 @@ public class ItemCompra {
 	private int qtd_compra;
 	private float valor;
 	
-	private Produto produto;
+	private Peca produto;
 
 	public int getCod_compra() {
 		return cod_compra;
@@ -40,11 +40,11 @@ public class ItemCompra {
 		this.valor = valor;
 	}
 
-	public Produto getProduto() {
+	public Peca getProduto() {
 		return produto;
 	}
 
-	public void setProduto(Produto produto) {
+	public void setProduto(Peca produto) {
 		this.produto = produto;
 	}
 	

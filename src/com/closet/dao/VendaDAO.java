@@ -1,4 +1,4 @@
-package com.mercado.dao;
+package com.closet.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mercado.modelo.Produto;
-import com.mercado.modelo.Venda;
-import com.mercado.modelo.Cliente;
+import com.closet.modelo.Cliente;
+import com.closet.modelo.Peca;
+import com.closet.modelo.Venda;
 
 public class VendaDAO  extends AbstractDAO<Venda>{
 	
-	private List<Produto> listaProduto = new ArrayList<Produto>();
+	private List<Peca> listaProduto = new ArrayList<Peca>();
 	private List<Venda> listaVenda = new ArrayList<Venda>();
 	private List<Cliente> listaCliente = new ArrayList<Cliente>();
 	
@@ -48,6 +48,23 @@ public class VendaDAO  extends AbstractDAO<Venda>{
 		}*/
 	}
 	
+	public boolean Remover(Peca obj) {
+        if ((obj.getCodigo() > 0)) {
+            try {
+                //Seta o atributo ativo com valor '0'
+                PreparedStatement sqlUpdate = conn.prepareStatement("update produto set ativo = 0 where IdProduto=?");
+                sqlUpdate.setInt(1, obj.getCodigo());
+                sqlUpdate.executeUpdate();
+
+                return true;
+            } catch (Exception ex) {
+                System.err.println(ex.getMessage());
+                return false;
+            }
+        }
+        return true;
+    }
+	
 	public List<Venda> getLista(Venda venda){
 		try{
 			PreparedStatement ptmt = conn.prepareStatement("select * from Venda where codigo = ?");
@@ -70,13 +87,13 @@ public class VendaDAO  extends AbstractDAO<Venda>{
 		return listaVenda;
 	}
 	
-	public List<Produto> getListaProduto(Produto produto){
+	public List<Peca> getListaProduto(Peca produto){
 		try{
 			PreparedStatement ptmt = conn.prepareStatement("select * from PRODUTO where codigo like ?");
 			ptmt.setString(1, "%" + produto.getCodigo() + "%");
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()){
-				produto = new Produto();
+				produto = new Peca();
 				listaProduto.add(produto);
 			}
 			rs.close();

@@ -1,4 +1,4 @@
-package com.mercado.dao;
+package com.closet.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mercado.modelo.Cliente;
+import com.closet.modelo.Cliente;
 
 public class ClienteDAO extends AbstractDAO<Cliente>{
 	

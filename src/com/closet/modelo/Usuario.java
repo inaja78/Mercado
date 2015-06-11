@@ -1,4 +1,4 @@
-package com.mercado.modelo;
+package com.closet.modelo;
 
 public class Usuario {
 	

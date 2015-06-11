@@ -1,4 +1,4 @@
-package com.mercado.dao;
+package com.closet.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;

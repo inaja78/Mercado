@@ -1,4 +1,4 @@
-package com.mercado.dao;
+package com.closet.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class FabricaConexao {
 	private static final String DRIVER_NAME = "org.postgresql.Driver";
-	private static final String URL = "jdbc:postgresql://localhost/mercado";
+	private static final String URL = "jdbc:postgresql://localhost/closet";
 	private static final String USUARIO = "postgres";
-	private static final String SENHA = "admin";
+	private static final String SENHA = "bibi";
 	
 	private static FabricaConexao fabricaConexao = null; 
 	

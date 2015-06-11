@@ -1,4 +1,4 @@
-package com.mercado.dao;
+package com.closet.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,24 +6,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mercado.modelo.Produto;
+import com.closet.modelo.Peca;
 
-public class ProdutoDAO extends AbstractDAO<Produto>{
+public class PecaDAO extends AbstractDAO<Peca>{
 	
-	private List<Produto> listaProduto = new ArrayList<Produto>();
+	//private PecaDAO pecaDAO;
+	private List<Peca> listaProduto = new ArrayList<Peca>();
 	
-	public ProdutoDAO(){
+	public PecaDAO(){
 		super();
-		listaProduto = new ArrayList<Produto>();
+		listaProduto = new ArrayList<Peca>();
 	}
 	
-	public List<Produto> getLista(Produto produto) {
+	public List<Peca> getLista(Peca produto) {
 		try {
 			PreparedStatement ptmt = conn.prepareStatement("select * from PRODUTO where nome like ?");
 			ptmt.setString(1, "%" + produto.getNome() + "%");
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()) {
-				produto = new Produto();
+				produto = new Peca();
 				listaProduto.add(produto);
 			}
 			rs.close();
@@ -34,11 +35,11 @@ public class ProdutoDAO extends AbstractDAO<Produto>{
 		return listaProduto;
 	}
 
-	public List<Produto> getLista() {
+	public List<Peca> getLista() {
 		return listaProduto;
 	}
 
-	public void adicionar(Produto produto) {
+	public void adicionar(Peca produto) {
 		try {
 			PreparedStatement ptmt = conn.prepareStatement("insert into PRODUTO(codigo, nome, qtd_venda, qtd_compra, qtd_estoque, valor) values (?, ?, ?, ?, ?, ?)");
 			ptmt.setInt(1, produto.getCodigo());
@@ -55,7 +56,7 @@ public class ProdutoDAO extends AbstractDAO<Produto>{
 		listaProduto.add(produto);
 	}
 
-	public void remover(Produto objeto) {
+	public void remover(Peca objeto) {
 /*		try {
 			PreparedStatement stmt;
 			stmt = conexao.prepareStatement(sql);
@@ -66,6 +67,23 @@ public class ProdutoDAO extends AbstractDAO<Produto>{
 			}*/
 		
 	}
+	
+	public boolean Remover(Peca obj) {
+        if ((obj.getCodigo() > 0)) {
+            try {
+                //Seta o atributo ativo com valor '0'
+                PreparedStatement sqlUpdate = conn.prepareStatement("update produto set ativo = 0 where IdProduto=?");
+                sqlUpdate.setInt(1, obj.getCodigo());
+                sqlUpdate.executeUpdate();
+
+                return true;
+            } catch (Exception ex) {
+                System.err.println(ex.getMessage());
+                return false;
+            }
+        }
+        return true;
+    }
 	
 
 }

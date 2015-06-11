@@ -1,18 +1,18 @@
-package com.mercado.modelo;
+package com.closet.modelo;
 
 public class ItemVenda {
 	private int cod_venda;
-	//private int cod_produto;
+	private Venda venda;
 	private int qtd_venda;
-	//private float valor;
+	private float valor;
 	
-	private Produto produto;
+	private Peca produto;
 	
 	public ItemVenda(){
-		produto = new Produto();
+		produto = new Peca();
 	}
 	
-	public ItemVenda(Produto produto, int qtd_venda, int cod_venda){
+	public ItemVenda(Peca produto, int qtd_venda, int cod_venda){
 		this.produto = produto;
 		this.qtd_venda = qtd_venda;
 		this.cod_venda = cod_venda;
@@ -42,25 +42,33 @@ public class ItemVenda {
 		this.qtd_venda = qtd_venda;
 	}
 
-	/*public float getValor() {
+	public float getValor1() {
 		return valor;
 	}
 
 	public void setValor(float valor) {
 		this.valor = valor;
-	}*/
+	}
 
-	public Produto getProduto() {
+	public Peca getProduto() {
 		return produto;
 	}
 
-	public void setProduto(Produto produto) {
+	public void setProduto(Peca produto) {
 		this.produto = produto;
 	}
 	
 	public Float getValor(){
 		
 		return produto.getValor() * qtd_venda;
+	}
+
+	public Venda getVenda() {
+		return venda;
+	}
+
+	public void setVenda(Venda venda) {
+		this.venda = venda;
 	}
 	
 	/*public String toString() {

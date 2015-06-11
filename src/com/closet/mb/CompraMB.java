@@ -1,4 +1,4 @@
-package com.mercado.mb;
+package com.closet.mb;
 
 import java.util.ArrayList;
 
@@ -7,9 +7,9 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.mercado.dao.AbstractDAO;
-import com.mercado.dao.CompraDAO;
-import com.mercado.modelo.Compra;
+import com.closet.dao.AbstractDAO;
+import com.closet.dao.CompraDAO;
+import com.closet.modelo.Compra;
 
 @ManagedBean(name="compraBean")
 @SessionScoped

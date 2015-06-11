@@ -1,4 +1,4 @@
-package com.mercado.dao;
+package com.closet.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mercado.modelo.Produto;
-import com.mercado.modelo.Compra;
-import com.mercado.modelo.Vendedor;
+import com.closet.modelo.Compra;
+import com.closet.modelo.Peca;
+import com.closet.modelo.Vendedor;
 
 public class CompraDAO extends AbstractDAO<Compra>{
 	
-	private List<Produto> listaProduto = new ArrayList<Produto>();
+	private List<Peca> listaProduto = new ArrayList<Peca>();
 	private List<Vendedor> listaVendedor = new ArrayList<Vendedor>();
 	private List<Compra> listaCompra = new ArrayList<Compra>();
 	
@@ -66,13 +66,13 @@ public class CompraDAO extends AbstractDAO<Compra>{
 		return listaCompra;
 	}
 	
-	public List<Produto> getListaProduto(Produto produto){
+	public List<Peca> getListaProduto(Peca produto){
 		try{
 			PreparedStatement ptmt = conn.prepareStatement("select * from PRODUTO where codigo like ?");
 			ptmt.setString(1, "%" + produto.getCodigo() + "%");
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()){
-				produto = new Produto();
+				produto = new Peca();
 				listaProduto.add(produto);
 			}
 			rs.close();

@@ -1,6 +1,6 @@
-package com.mercado.modelo;
+package com.closet.modelo;
 
-public class Produto {
+public class Peca {
 	private int codigo;
 	private String nome;
 	private int qtdVenda;
@@ -11,7 +11,7 @@ public class Produto {
 	private Compra compra;
 	private Venda venda;
 	
-	public Produto(){
+	public Peca(){
 		
 	}
 

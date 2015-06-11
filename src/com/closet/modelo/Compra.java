@@ -1,4 +1,4 @@
-package com.mercado.modelo;
+package com.closet.modelo;
 
 import java.util.Date;
 
